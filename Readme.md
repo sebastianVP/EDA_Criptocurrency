@@ -1,11 +1,11 @@
-# Aplicacion Web Criptocurrency price Web App
+# Web Criptocurrency price Web App
 
 Esta aplicacion Web muestra el costo de las criptomonedas, permite seleccionar 
 la moneda dolares, solares, libras y tambien la cripto moneda para poder 
 visualizar su valor y variacion en el tiempo.
 
 ***
-# LIBRERIAS EMPLEADAS:
+## LIBRERIAS EMPLEADAS:
 
  * streamlit: Web develop
  * PIL: Importar imagen
