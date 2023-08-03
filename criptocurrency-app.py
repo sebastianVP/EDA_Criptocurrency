@@ -117,6 +117,5 @@ def filedownload(df):
 
 col2.markdown(filedownload(df_selected_coin),unsafe_allow_html=True)
 
-
 #-------------------------------#
 #Preparing data for BAR Plot of % Price Change
