@@ -41,7 +41,28 @@ currency_price_unit = col1.selectbox('Select currency for price',('USD','BTC','E
 # Web Scraping of Coin Marketcap data
 @st.cache_data
 def load_data():
-    cmc = requests.get("https://coinmarketcap.com")
+    cmc       = requests.get("https://coinmarketcap.com")
+    soup      = BeautifulSoul(cmc.content,'html.parser')
+    data      = soup.find('script',id='__NEXT_DATA__',type='application/json')
+    coin_data = json.loads(data.contents[0])
+    listingsT = json.loads(coin_data['props']['initialState'])['cryptocurrency']['listingLatest']['data']
+    keysArr   = listingsT[0]
+    listings  = listngsT[1:]
+    coins     = {}
+    for i in listings:
+       coins[str(i[keysArr.index('id')])] = i[keysArr.index('slug')]
+    coin_name   =[]
+    coin_symbol =[]
+    maket_cap   =[]
+    percent_change_1h  = []
+    percent_change_24h = []
+    percent_change_7d  = []
+    price              = []
+    volumen_24h        = []
+
+    for i in listings:
+       coin_name.append(i[keysArr.index('slug')]) 
+       coin_symbol.append(i[keysArr.index('symbol')])
     #return df
 
 #df = load_data()
