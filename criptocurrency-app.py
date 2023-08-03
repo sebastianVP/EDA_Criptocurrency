@@ -24,7 +24,7 @@ expander_bar = st.expander("**About**")
 expander_bar.markdown("""
 Utiliza las librerias:
 * **Python Libraries:** Streamlite,base64,request,json,bs4
-* **DataSource:** [CoinMarketCap](http://coinmarketcap)
+* **DataSource:** [CoinMarketCap](https://coinmarketcap.com)
 * **Credit:** Web scraper adapted from the Medium article *[Web Scraping Crypto Prices With Python](https://towardsdatascience.com/web-scraping-crypto-prices-with-python-41072ea5b5bf)* written by [Bryan Feng](https://medium.com/@bryanf).
 """)
 #-------------------------------------#
@@ -37,6 +37,13 @@ col2,col3 =st.columns((2,1))
 col1.header("Input Options")
 # Sidebar - Currency price unit
 currency_price_unit = col1.selectbox('Select currency for price',('USD','BTC','ETH'))
+
 # Web Scraping of Coin Marketcap data
+@st.cache_data
+def load_data():
+    cmc = requests.get("https://coinmarketcap.com")
+    #return df
 
+#df = load_data()
 
+## SIDEBAR - CRYPTOCURRENCY SELECTIONS
